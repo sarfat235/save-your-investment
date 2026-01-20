@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Save Your Investment</title>
@@ -8,11 +9,18 @@
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <h1>📈 Save Your Investment</h1>
-    <p>Indian Stock Market – Simple & Smart</p>
+  ><!-- HEADER -->
+  <header class="site-header">
+    <div class="logo-box">
+      <img src="logo.png" alt="Save Your Investment Logo" class="logo">
+    </div>
+
+    <div class="title-box">
+      <h1>Save Your Investment</h1>
+      <p>Indian Stock Market – Simple & Smart</p>
+    </div>
   </header>
+
 
   <!-- MAIN CARDS -->
   <main>
@@ -23,7 +31,13 @@
         <span id="niftyChange" class="up">--</span>
       </p>
     </div>
-
+    <div class="card">
+      <h2>BANK NIFTY</h2>
+      <p>
+        <span id="bankniftyValue">--</span>
+        <span id="bankniftyChange" class="">--</span>
+      </p>
+    </div>
     <div class="card">
       <h2>SENSEX</h2>
       <p>
@@ -31,11 +45,77 @@
         <span id="sensexChange" class="down">--</span>
       </p>
     </div>
+
   </main>
+  <section class="filters">
+    <h3>🔍 Filters</h3>
+
+    <label>
+      Price Above
+      <input type="number" id="priceFilter" placeholder="100">
+    </label>
+
+    <label>
+      Change % Above
+      <input type="number" id="changeFilter" placeholder="1">
+    </label>
+
+    <button onclick="applyFilters()">Apply Filters</button>
+  </section>
+
+  <div id="results"></div>
+  <!-- STOCK SEARCH -->
+  <section class="search">
+    <h2>🔍 Search Any Stock</h2>
+
+    <input type="text" id="stockInput" placeholder="Enter stock symbol (e.g. TCS, RELIANCE)" />
+
+    <button onclick="searchStock()">Search</button>
+
+    <div id="stockResult" class="card" style="display:none;">
+      <h3 id="stockName"></h3>
+      <p>
+        <span id="stockPrice"></span>
+        <span id="stockChange"></span>
+      </p>
+
+      <!-- ADD TO WATCHLIST BUTTON -->
+      <button onclick="addToWatchlist()" style="margin-top:10px;">
+        ➕ Add to Watchlist
+      </button>
+    </div>
+  </section>
+
+  <!-- WATCHLIST -->
+  <section class="watchlist">
+    <h3>⭐ My Watchlist</h3>
+    <div id="watchlistItems"></div>
+  </section>
+
+  <!-- TRENDING STOCKS -->
+  <section class="trending">
+    <h3>🔥 Trending Stocks</h3>
+    <div id="trendingStocks" class="trending-grid"></div>
+  </section>
+
+  <!-- FILTERS / SCREENER -->
+  <section class="filters">
+    <h3>📊 Screener Filters</h3>
+
+    <input type="number" id="priceFilter" placeholder="Price Above ₹" />
+    <input type="number" id="changeFilter" placeholder="Change % Above" />
+
+    <div style="margin-top:12px;">
+      <button onclick="applyFilters()">Apply Filters</button>
+      <button onclick="runRSIScreener()">Run RSI Screener</button>
+    </div>
+
+    <div id="results" style="margin-top:20px;"></div>
+  </section>
 
   <!-- CHART SECTION -->
   <section style="padding:40px; display:flex; justify-content:center;">
-    <div style="width:90%; max-width:900px;">
+    <div style="width:90%; max-width:600px;">
       <div id="tradingview_chart"></div>
     </div>
   </section>
@@ -54,7 +134,15 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 Save Your Investment</p>
+    <p class="disclaimer">
+      Disclaimer: The information provided on this website is for educational and informational purposes only.
+      It should not be considered as financial or investment advice.
+      Stock market investments are subject to market risks.
+      Please consult a certified financial advisor before making any investment decisions.
+      This website does not provide any guarantees of returns.
+
+    </p>
+
   </footer>
 
   <!-- SCRIPTS -->
@@ -80,4 +168,5 @@
   <script src="script.js"></script>
 
 </body>
+
 </html>

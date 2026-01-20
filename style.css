@@ -1,74 +1,217 @@
-body {
-  font-family: Arial, sans-serif;
+** {
   margin: 0;
-  background: #0f172a;
-  color: white;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, sans-serif;
 }
 
+body {
+  background: #f5f7fb;
+  color: #111827;
+}
+
+/* HEADER */
 header {
-  background: #020617;
-  padding: 20px;
+  background: white;
+  padding: 22px;
   text-align: center;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-main {
-  display: flex;
+header h1 {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+header p {
+  color: #6b7280;
+}
+
+/* INDEX CARDS */
+.index-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  padding: 30px;
-  justify-content: center;
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
 }
 
-.card {
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 10px;
+.index-card {
+  background: white;
+  padding: 22px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.index-card h3 {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.price {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.up {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.down {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* SEARCH */
+.search-box {
+  background: white;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 25px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.search-input {
+  display: flex;
+  margin-top: 14px;
+}
+
+.search-input input {
+  flex: 1;
+  padding: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px 0 0 12px;
+}
+
+.search-input button {
+  padding: 14px 24px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  border-radius: 0 12px 12px 0;
+  cursor: pointer;
+}
+
+/* FILTERS */
+.filters {
+  background: white;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.filters input {
+  padding: 12px;
   width: 200px;
-  text-align: center;
+  margin: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
 }
 
+.filters button {
+  padding: 12px 22px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* CHART */
+.chart-container {
+  max-width: 900px;
+  margin: 40px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* FOOTER */
 footer {
-  text-align: center;
-  padding: 15px;
-  background: #020617;
-}
-.stocks { padding:40px; text-align:center }
-.stock-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-}
-.stock-grid div {
-  background:#1e293b;
-  padding:20px;
-  border-radius:12px;
-}
-.up { color:#22c55e }
-.down { color:#ef4444 }
-.up {
-  color: #22c55e;
-  font-weight: 600;
+  .disclaimer {
+    max-width: 900px;
+    margin: 10px auto 0;
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.5;
+  }
+
 }
 
-.down {
-  color: #ef4444;
-  font-weight: 600;
+/* MOBILE */
+@media (max-width: 768px) {
+  .index-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.card {
-  transition: transform 0.3s ease;
-}
+.watchlist {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 
-.card:hover {
-  transform: translateY(-5px);
-}
-.up {
-  color: #22c55e; /* green */
-  font-weight: bold;
-  margin-left: 8px;
-}
+  .trending {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  }
 
-.down {
-  color: #ef4444; /* red */
-  font-weight: bold;
-  margin-left: 8px;
-}
+  .trending h3 {
+    margin-bottom: 16px;
+  }
+
+  .trending-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+
+  body {
+    background: #f5f7fb;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+  }
+
+  /* HEADER */
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  .logo-box img {
+    width: 48px;
+    height: auto;
+  }
+
+  .title-box h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #0f172a;
+  }
+
+  .title-box p {
+    margin: 4px 0 0;
+    color: #64748b;
+    font-size: 13px;
+  }
